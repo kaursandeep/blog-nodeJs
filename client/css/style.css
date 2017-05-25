@@ -4,11 +4,12 @@
     }
     .header {
       background-color: #FFFFFF;
-      height: 1px;
+      height: 75px;
       border: 1px solid #E6E6E6;
     }
-      .content1 {
-        height: 101px;
+      .mainsection {
+        height: 900px;
+        background-color:#FAFAFA;
       }
       
       .container{
