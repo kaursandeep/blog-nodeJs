@@ -1,17 +1,131 @@
+ /**Custom css file**/
  body {
       margin-top:0px;
       padding-top:0px;
+      font-family:  -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-size: 15px;
     }
     .header {
       background-color: #FFFFFF;
-      height: 75px;
+      height: 80px;
       border: 1px solid #E6E6E6;
     }
-      .mainsection {
-        height: 900px;
+    .maincontent {
+        min-height: 1100px;
         background-color:#FAFAFA;
       }
-      
-      .container{
-          width: 100%;
-      }
+	.logo {
+		width: 30px;
+		height: 30px;
+		margin-right: 13px;
+	}
+	.tnavbar{
+		    padding: 1% 26%;
+	}
+	.tagline {
+		margin-left: 13px;
+		height: 38px;
+	} 
+	.mainsearch .form-control { 
+			    height: 28px;
+				width: 200px;
+				background-image: url(../img/header/search-icon.png);
+				background-size: 15px;
+				background-repeat: no-repeat;
+				background-position-x: 62px;
+				background-position-y: 6px;
+				text-align: center;
+				color: #dbdbdb;
+	}
+	.mainsearch input {
+	background: #fafafa;
+    border: solid 1px #dbdbdb;
+	box-shadow: none;
+	}
+	.nav1 {
+		min-width: 40%;float: left;
+	}
+	.nav2 {float: left;}
+	.nav3 {   width: auto;   float: right; margin-top: 8px;}
+	.nav3 img {
+	width: 22px;
+    height: 22px;
+    margin-left: 24px;
+	}
+	
+	.centercontent{
+	    border:1px solid #E6E6E6;
+	    height:auto;
+	    background-color: white;
+		margin-top: 60px;
+	    }
+	    
+	    .postheader{
+	        height: 67px;
+	        border: none;
+	    }
+	    .profilephoto{
+	        height: 45px;
+	        width: 45px;
+	    }
+	    
+	    .profilediv {    float: left;
+                        margin-top: 10px;
+                        margin-left: 20px;}
+	    
+	    .profilename .textname{
+	            font-weight: 500;
+                float: left;
+                color: #262626;
+                margin-top: 22px;
+                margin-left: 10px;
+	    }
+	    .profilename {float:left;}
+		.posttime {float: right; color: #999;margin-top:20px; margin-right:17px;}
+	    .imagediv{
+	        border:none;
+	    }
+	    .imagediv img {width : 100%;}
+	    .likes {
+	    	    text-align: left;
+    			margin-top: 10px;
+	    }
+	    .comments {
+	    	    list-style-type: none;
+			    padding-left: 0;
+			    margin-right: 18px;
+			    text-align: left;
+	    }
+		
+		a,a:hover, a:focus {
+			color: #262626;
+		}
+		.postcontent {    padding: 25px;}
+		.likeicon  {float: left;
+			font-size: 23px;
+			color: #999;
+			border: 17px;
+			}
+		.addcomment {    float: left;
+						border: none;
+						margin-left: 11px;
+						font-size: 16px;
+						height: 29px;
+						outline: none;	
+						}
+		.reaction{ height: 18px;}
+		footer {
+			background-color: #FAFAFA;
+			color: #999;
+			text-align: center;
+			text-decoration:none;
+		}
+		footer span:hover {text-decoration:none;}
+		
+		@media (min-width: 1701px) {
+			.mainc {    padding-left: 9%;    padding-right: 9%;}
+		}
+		
+		@media (min-width: 1300px) and (max-width: 1700px) {
+			.mainc {    padding-left: 5%;    padding-right: 5%;}
+		}
