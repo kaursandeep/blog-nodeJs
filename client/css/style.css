@@ -19,9 +19,7 @@
 		height: 30px;
 		margin-right: 13px;
 	}
-	.tnavbar{
-		    padding: 1% 26%;
-	}
+	
 	.tagline {
 		margin-left: 13px;
 		height: 38px;
@@ -128,4 +126,10 @@
 		
 		@media (min-width: 1300px) and (max-width: 1700px) {
 			.mainc {    padding-left: 5%;    padding-right: 5%;}
+		}
+		@media (min-width: 1000px) and (max-width: 1310px) {
+			.tnavbar {    padding: 1% 18%;			}
+		}
+		@media (min-width: 1311px) {
+			.tnavbar{    padding: 1% 26%;	}
 		}
