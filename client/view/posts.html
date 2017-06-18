@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <title>Instagram</title>
+	<!--Favicon image-->
+	<link rel="shortcut icon" type="img/png" href="img/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Boostrap css file-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--Boostrap responsive css file-->
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+	<!--Custom css file-->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    	
+	<!--Jquery scripts-->
+    <script src="../js/jquery.min.js"></script>
+     <script>
+        var $;
+       // console.log('dgdg'+$.post('posts'));
+        //console.log('dgdg'+$.user('user'));
+            //handle a click on the LIKE button we've included with each post
+            //we receive the ID of the post as a parameter
+        /* posts=$.post('posts');
+        
+         posts.forEach(function(post){
+             console.log(post.comment);
+         });*/
+
+         function likeClick(id){
+               event.preventDefault();
+            // return false;
+             //alert(id);
+                Promise.resolve()
+                .then(function(){
+                    //jQuery provides a nice convenience method for easily sending a post with parameters in JSON
+                    //here we pass the ID to the incrLike route on the server side so it can do the incrementing for us
+                    //note the return. This MUST be here, or the subsequent then will not wait for this to complete
+                    return $.post('incrLike', {id : id});
+                })
+                .then(function(like){
+                    console.log(like.count);
+                    //jQuery provides a nice convenience methot for easily setting the count to the value returned
+                    console.log('count is '+like.count+'like id is '+like.id);
+                    $('.likeCount' + like.id).html(like.count);
+                })
+                .catch(function(err){
+                    //always include a catch for the promise chain
+                    console.log(err);
+                });
+            }
+            
+            
+            /*function getcomments(id){
+             //alert(id);
+                Promise.resolve()
+                .then(function(){
+                    //jQuery provides a nice convenience method for easily sending a post with parameters in JSON
+                    //here we pass the ID to the incrLike route on the server side so it can do the incrementing for us
+                    //note the return. This MUST be here, or the subsequent then will not wait for this to complete
+                    return $.post('comment', {id : id});
+                })
+               
+                .catch(function(err){
+                    //always include a catch for the promise chain
+                    console.log(err);
+                });
+            }*/
+            
+           
+         
+          //onLoad function, to be executed when page is completed loaded by browser
+            //function onload(){
+                //start a promise chain
+                Promise.resolve()
+                .then(function(){
+                    //jQuery function to request all the posts from the server
+                    //the 'return' is required. Otherwise, the subsequent then will not wait for this to complete
+                    return $.post('posts');  
+                })
+                //when the server responds, we'll execute this code
+                .then(function(data){
+                    //jQuery function to set the innerHTML of the div with id = 'posts' to empty
+                    $('#posts').html('');
+                    console.log(data);
+                    
+                    var posts=[];
+                    posts=data.posts;
+                    
+                    users=[];
+                    var users=data.user;
+                    var name;
+                    //console.log(users);
+                    
+                    //loop over each post item in the posts array
+                    posts.forEach(function(post){
+                        
+                        /* users.forEach(function(user){
+                             if(posts.id==user.userid) {
+                                 name=user.firstname;
+                             }
+                            
+                         });*/
+                        //getcomments(post._id);
+                        
+                        $(".centercontent").append('<div class="postcover '+post._id+'"><div class="postheader"><div class="profilediv"></div><div class="profilename"><span class="textname"></span></div><div class="posttime">6h</div></div>');
+
+                        $(".postcover."+post._id).append('<div class ="imagediv"><img src="'+post.image+'"></div>');
+                        $(".postcover."+post._id).append(' <div class="postcontent"><div class="likes"></div><ul class="comments"><li class="content">'+post.content+'</li><li><strong>Aman</strong> Where are you all? </li><li><strong>Brahmpreet</strong> At Niagra. </li><li><strong>Mansavvvy</strong> Best Click!</li></ul><hr><div id="like"></div><div class="reaction"><span class="glyphicon glyphicon-heart-empty likeicon"></span><input type="text" class="addcomment" placeholder="Add a comment..." value=""></div></div>');
+						  
+                        console.log('post id is ...'+post._id);
+                        $(".postcover."+post._id+" .likes").append('<button onclick="likeClick(\'' + post._id + '\')">Like</button><span class="likeCount'+post._id+'">'+post.likeCount+'</span> likes');
+                        
+                        console.log(post.likeCount);
+                       
+                    })
+                    
+                      $(".textname").append(users.firstName+' '+users.lastName);
+                      $(".profilediv").append('<img src="img/'+users.profilePic+'" class="profilephoto"></img>');
+
+                })
+           
+        </script>
+ 
+	    
+  </head>
+  <body>
+  <!--Header div starts-->
+	 <div class="header">
+          <div class="tnavbar">
+			<div class="nav1">
+				<a href="#"><img src="../img/header/instagram-logo.png" class="logo"/>  |  <img src="img/header/instagram_PNG5.png" class="tagline"/></a>
+			</div>
+			
+			<div class="nav2">
+				<form class="navbar-form navbar-left mainsearch" role="search">
+				  <div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				  </div>
+				</form>
+			</div>
+			
+			<div class="nav3">
+				<a href="#"><img src="img/header/a.png"/>  
+				<a href="#"><img src="img/header/Heart-SG2001-transparent.png"/>  
+				<a href="#"><img src="img/header/-SG2001-p.png"/> 
+			</div>
+		   
+		   </div>
+     </div>
+     <!--Header div ends-->
+     
+     
+     <!--Maincontent div starts-->
+    <div class="container-fluid maincontent">
+      <div class="row">
+
+            <div class="col-lg-6 col-lg-offset-3 text-center mainc">
+             
+              <div class="centercontent">
+                 
+              </div>
+              
+              
+            </div> 
+        
+      </div>
+    
+    </div>
+    <!--Maincontent div ends-->
+	
+	<!--footerdiv starts-->
+	<footer>
+		<div>2017 INSTAGRAM</div>
+	</footer>
+    <!--footerdiv ends-->
+	
+    </div>
+	</div>
+	
+	
+	 
+    <script src="/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>
+
+
+      

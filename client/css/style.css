@@ -52,9 +52,7 @@
 	}
 	
 	.centercontent{
-	    border:1px solid #E6E6E6;
 	    height:auto;
-	    background-color: white;
 		margin-top: 60px;
 	    }
 	    
@@ -119,6 +117,11 @@
 			text-decoration:none;
 		}
 		footer span:hover {text-decoration:none;}
+		.postcover {
+		    margin-bottom: 77px;
+		    background-color: white;
+		    border: 1px solid #E6E6E6;
+		}
 		
 		@media (min-width: 1701px) {
 			.mainc {    padding-left: 9%;    padding-right: 9%;}
