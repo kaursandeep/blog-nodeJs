@@ -71,7 +71,7 @@
            
          
           //onLoad function, to be executed when page is completed loaded by browser
-            //function onload(){
+            function onload(){
                 //start a promise chain
                 Promise.resolve()
                 .then(function(){
@@ -120,12 +120,13 @@
                       $(".profilediv").append('<img src="img/'+users.profilePic+'" class="profilephoto"></img>');
 
                 })
+            }
            
         </script>
  
 	    
   </head>
-  <body>
+  <body onload="onload();">
   <!--Header div starts-->
 	 <div class="header">
           <div class="tnavbar">
